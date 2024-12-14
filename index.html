@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonebook</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: url("bg-phonebook1.jpeg");
+            background-size: cover;
+        }
+        .main-container{
+            width: 350px;
+            background-color: rgba(28, 27, 23, 0.4);
+            display:block;
+            margin: 170px auto;
+            padding: 20px ;
+            border-radius: 10px;
+        }
+        .heading{
+            text-align: center;
+            font-size: 30px;
+            color:black;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .input{
+            background-color:  rgba(9, 8, 6, 0.4);
+            color:black;
+            height: 30px;
+            width: 300px;
+            border-radius: 30px;
+            padding: 20px auto;
+            margin-left: 20px;
+            text-align: center;
+            border: none;
+            
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .btn{
+            margin: 20px auto;
+            color: black;
+            background-color: rgba(7, 6, 5, 0.4) ;
+            text-align: center;
+            font-size: 15px;
+            padding: 5px 25px;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            border: none;
+            border-radius: 30px;
+            margin-left: 120px;
+
+        }
+        .text{
+            text-align: center;
+            color:black;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+           <p class="heading">Contact Book</p>
+           <input placeholder="Name of the person to search the contact" class="input" id="input">
+           <button class="btn" onclick="search()">Search</button>
+           <p class="text" id="result">-</p>
+    </div>
+
+    <script>
+        const contact = {
+            gauri : "9860725467" ,
+            Mumma : "8806413834" ,
+            pappa : "8378053637" ,
+            kalyani : "7888233968" ,
+            himanshi : "9322207635" ,
+            aniket : "8446271464",
+            chetan : "7709594169"
+        }
+
+        function search(){
+            const searchInput = document.getElementById("input");
+            const query = searchInput.value.toLowerCase();
+
+            const result = document.getElementById("result");
+
+            const mobile = contact[query]
+
+            if(mobile){
+                    result.innerText = `Mobile Number of ${query} is ${mobile}` ;
+
+            }
+            else{
+                    result.innerText = `Contact Not Found`;
+            }
+        }
+    </script>
+</body>
+</html>
